@@ -154,7 +154,11 @@ impl CssParser {
                     }
                 }
                 
-                let value = value_parts.join(" ").trim().to_string();
+                let value = if value_parts.len() == 1 {
+                    value_parts[0].clone()
+                } else {
+                    value_parts.join(" ").trim().to_string()
+                };
                 
                 if matches!(self.current_token(), Some(CssToken::Semicolon)) {
                     self.advance(); // Skip semicolon
