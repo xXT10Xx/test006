@@ -1,6 +1,25 @@
 [package]
 name = "html-css-parser"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
+
+[lib]
+name = "html_css_parser"
+path = "src/lib.rs"
+
+[[bin]]
+name = "html-css-parser"
+path = "src/main.rs"
 
 [dependencies]
+
+[dev-dependencies]
+criterion = "0.5"
+
+[[bench]]
+name = "html_benches"
+harness = false
+
+[[bench]]
+name = "css_benches"
+harness = false
